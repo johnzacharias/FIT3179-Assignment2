@@ -9,12 +9,12 @@
       "url": "https://raw.githubusercontent.com/johnzacharias/FIT3179-Assignment2/refs/heads/main/data/au.json",
       "format": {
         "type": "topojson",
-        "feature": "au"  
+        "feature": "au"
       }
     },
     "transform": [
       {
-        "lookup": "properties.id",  
+        "lookup": "properties.id",
         "from": {
           "data": {
             "values": [
@@ -28,8 +28,8 @@
               { "state": "AUACT", "hectares": 90 }
             ]
           },
-          "key": "state",  
-          "fields": ["hectares"] 
+          "key": "state",
+          "fields": ["hectares"]
         }
       }
     ],
@@ -41,10 +41,14 @@
     "height": 600,
     "encoding": {
       "color": {
+        "condition": {
+          "test": "datum.hectares === 0",
+          "value": "#D3D3D3"  
+        },
         "field": "hectares",
         "type": "quantitative",
         "scale": {
-          "domain": [0, 3000],  
+          "domain": [1, 6000],  
           "range": ["#ffffff", "#ff0000"]  
         }
       },
