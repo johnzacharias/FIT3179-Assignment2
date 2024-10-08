@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Hectares Burnt by State in Australia during the 2019-20 Bushfires",
+      "fontSize": 16,
+      "fontWeight": "bold"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/johnzacharias/FIT3179-Assignment2/refs/heads/main/data/au.json",
+      "format": {
+        "type": "topojson",
+        "feature": "au"  
+      }
+    },
+    "transform": [
+      {
+        "lookup": "properties.id",  
+        "from": {
+          "data": {
+            "values": [
+              { "state": "AUWA", "hectares": 2044 },
+              { "state": "AUNT", "hectares": 0 },
+              { "state": "AUSA", "hectares": 313 },
+              { "state": "AUQLD", "hectares": 574 },
+              { "state": "AUNSW", "hectares": 5682 },
+              { "state": "AUVIC", "hectares": 1583 },
+              { "state": "AUTAS", "hectares": 45 },
+              { "state": "AUACT", "hectares": 90 }
+            ]
+          },
+          "key": "state",  
+          "fields": ["hectares"] 
+        }
+      }
+    ],
+    "mark": "geoshape",
+    "projection": {
+      "type": "mercator"
+    },
+    "width": 800,
+    "height": 600,
+    "encoding": {
+      "color": {
+        "field": "hectares",
+        "type": "quantitative",
+        "scale": {
+          "domain": [0, 3000],  
+          "range": ["#ffffff", "#ff0000"]  
+        }
+      },
+      "tooltip": [
+        { "field": "properties.name", "type": "nominal", "title": "State" },
+        { "field": "hectares", "type": "quantitative", "title": "Hectares Burnt" }
+      ]
+    }
+  }
+  
