@@ -1,52 +1,52 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Temperature Deviation Over Years in Australia",
-  "data": {
-    "url": "https://raw.githubusercontent.com/johnzacharias/FIT3179-Assignment2/refs/heads/main/data/temp_deviation.csv",
-    "format": {
-      "type": "csv"
-    }
-  },
-  "width": 800,
-  "height": 400,
-  "layer": [
-    {
-      "mark": {
-        "type": "line",
-        "color": "darkred"
-      },
-      "encoding": {
-        "x": {
-          "field": "Year",
-          "type": "temporal",
-          "title": "Year"
-        },
-        "y": {
-          "field": "Tempurate Deviation",
-          "type": "quantitative",
-          "title": "Temperature Deviation (°C)"
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "point",
-        "color": "crimson"
-      },
-      "encoding": {
-        "x": {
-          "field": "Year",
-          "type": "temporal"
-        },
-        "y": {
-          "field": "Tempurate Deviation",
-          "type": "quantitative"
-        },
-        "tooltip": [
-          {"field": "Year", "type": "temporal", "title": "Year"},
-          {"field": "Tempurate Deviation", "type": "quantitative", "title": "Temperature Deviation", "format": ".2f"}
-        ]
-      }
-    }
-  ]
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"title": "Temperature Deviation Over Years in Australia",
+"data": {
+"url": "https://raw.githubusercontent.com/johnzacharias/FIT3179-Assignment2/refs/heads/main/data/temp_deviation.csv",
+"format": {
+"type": "csv"
+}
+},
+"width": 800,
+"height": 400,
+"layer": [
+{
+"mark": {
+"type": "line",
+"color": "darkred"
+},
+"encoding": {
+"x": {
+"field": "Year",
+"type": "temporal",
+"title": "Year"
+},
+"y": {
+"field": "Tempurate Deviation",
+"type": "quantitative",
+"title": "Temperature Deviation (°C)"
+}
+}
+},
+{
+"mark": {
+"type": "point",
+"color": "crimson"
+},
+"encoding": {
+"x": {
+"field": "Year",
+"type": "temporal"
+},
+"y": {
+"field": "Tempurate Deviation",
+"type": "quantitative"
+},
+"tooltip": [
+{"field": "Year", "type": "temporal", "title": "Year"},
+{"field": "Tempurate Deviation", "type": "quantitative", "title": "Temperature Deviation", "format": ".2f"}
+]
+}
+}
+]
 }

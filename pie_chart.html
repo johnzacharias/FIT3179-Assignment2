@@ -1,69 +1,70 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "Causes of Bushfires in Australia.",
-    "data": [
-      {
-        "name": "table",
-        "values": [
-          {"category": "Accidental", "value": 35},
-          {"category": "Deliberate", "value": 13},
-          {"category": "Suspicious", "value": 37},
-          {"category": "Natural", "value": 6},
-          {"category": "Re-Ignition", "value": 5},
-          {"category": "Other", "value": 4}
-        ],
-        "transform": [
-          {
-            "type": "pie",
-            "field": "value"
-          }
-        ]
-      }
-    ],
-    "marks": [
-      {
-        "type": "arc",
-        "from": {"data": "table"},
-        "encode": {
-          "enter": {
-            "x": {"value": 200},
-            "y": {"value": 200},
-            "innerRadius": {"value": 50},
-            "outerRadius": {"value": 100},
-            "startAngle": {"field": "startAngle"},
-            "endAngle": {"field": "endAngle"},
-            "fill": {"scale": "color", "field": "category"},
-            "tooltip": {
-              "signal": "datum.category + ': ' + datum.value"
-            }
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Causes of Bushfires in Australia 2019",
+  "width": 500,
+  "height": 500,
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {"category": "Accidental", "value": 35},
+        {"category": "Deliberate", "value": 13},
+        {"category": "Suspicious", "value": 37},
+        {"category": "Natural", "value": 6},
+        {"category": "Re-Ignition", "value": 5},
+        {"category": "Other", "value": 4}
+      ],
+      "transform": [
+        {
+          "type": "pie",
+          "field": "value"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "arc",
+      "from": {"data": "table"},
+      "encode": {
+        "enter": {
+          "x": {"value": 250},  
+          "y": {"value": 250},  
+          "innerRadius": {"value": 80},  
+          "outerRadius": {"value": 180},  
+          "startAngle": {"field": "startAngle"},
+          "endAngle": {"field": "endAngle"},
+          "fill": {"scale": "color", "field": "category"},
+          "tooltip": {
+            "signal": "datum.category + ': ' + datum.value"
           }
         }
       }
-    ],
-    "scales": [
-      {
-        "name": "color",
-        "type": "ordinal",
-        "domain": {"data": "table", "field": "category"},
-        "range": ["#FF5733", "#C70039", "#FFC300", "#FFBD69", "#FFC1C1", "#900C3F"]
-      }
-    ],
-    "axes": [],
-    "legends": [
-      {
-        "fill": "color",
-        "orient": "right",
-        "title": "Fire Causes",
-        "titleFontSize": 14,
-        "labelFontSize": 12,
-        "symbolSize": 100,
-        "symbolType": "circle"
-      }
-    ],
-    "title": {
-      "text": "Causes of Bushfires in Australia",
-      "fontSize": 20,
-      "anchor": "middle"
     }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "table", "field": "category"},
+      "range": ["#FF5733", "#C70039", "#FFC300", "#FFBD69", "#FFC1C1", "#900C3F"]
+    }
+  ],
+  "axes": [],
+  "legends": [
+    {
+      "fill": "color",
+      "orient": "right",
+      "title": "Fire Causes",
+      "titleFontSize": 18, 
+      "labelFontSize": 14, 
+      "symbolSize": 200,    
+      "symbolType": "circle"
+    }
+  ],
+  "title": {
+    "text": "Causes of Bushfires in Australia",
+    "fontSize": 24,  
+    "anchor": "middle"
   }
-  
+}
