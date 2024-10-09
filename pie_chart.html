@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Causes of Bushfires in Australia 2019",
-  "width": 500,
-  "height": 500,
+  "width": 400,
+  "height": 300,
   "data": [
     {
       "name": "table",
@@ -28,10 +28,10 @@
       "from": {"data": "table"},
       "encode": {
         "enter": {
-          "x": {"value": 250},  
-          "y": {"value": 250},  
-          "innerRadius": {"value": 80},  
-          "outerRadius": {"value": 180},  
+          "x": {"value": 200},
+          "y": {"value": 150},
+          "innerRadius": {"value": 50},
+          "outerRadius": {"value": 100},
           "startAngle": {"field": "startAngle"},
           "endAngle": {"field": "endAngle"},
           "fill": {"scale": "color", "field": "category"},
@@ -56,15 +56,15 @@
       "fill": "color",
       "orient": "right",
       "title": "Fire Causes",
-      "titleFontSize": 18, 
-      "labelFontSize": 14, 
-      "symbolSize": 200,    
+      "titleFontSize": 14,
+      "labelFontSize": 12,
+      "symbolSize": 150,
       "symbolType": "circle"
     }
   ],
   "title": {
     "text": "Causes of Bushfires in Australia",
-    "fontSize": 24,  
+    "fontSize": 18,
     "anchor": "middle"
   }
 }
