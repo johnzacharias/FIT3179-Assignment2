@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vega-Lite Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -16,8 +16,12 @@
             border-radius: 5px;
             padding: 20px;
             background-color: #f9f9f9;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            height: 100%; 
+            min-height: 300px; 
         }
-
         h1 {
             font-family: 'Lato', sans-serif;
             font-size: 3rem;
@@ -27,13 +31,26 @@
             margin-top: 20px;
             margin-bottom: 40px;
         }
-
         h1 span {
             color: #800000; 
         }
-
         body {
             background-color: #ecf0f1; 
+        }
+        #fire-historymap {
+            display: flex;
+            justify-content: center; 
+        }
+        .btn-red {
+            background-color: #dc3545; 
+            color: white; 
+        }
+        .btn-red:hover {
+            background-color: #c82333; 
+        }
+        .row {
+            display: flex; 
+            flex-wrap: wrap; 
         }
     </style>
 </head>
@@ -42,13 +59,14 @@
         <h1>Fire History in <span>Australia</span></h1>
 
         <div class="graph-container">
-            <div id="fire-historymap"></div>
+            <div id="fire-historymap" class="d-flex justify-content-center"></div>
         </div>
 
         <div class="row">
             <div class="col-md-6">
                 <div class="graph-container">
                     <div id="state-chloropeth"></div>
+                    <button id="toggleMap" class="btn btn-red">Show Normalised Map</button>
                 </div>
             </div>
             <div class="col-md-6">
@@ -73,8 +91,22 @@
     </div>
 
     <script>
+        let isNormalised = false;
+
+        function loadChoropleth() {
+            const mapUrl = isNormalised ? 'normalised_chloropeth.html' : 'state_chloropeth.html';
+            vegaEmbed('#state-chloropeth', mapUrl);
+        }
+
+        loadChoropleth();
+
+        document.getElementById('toggleMap').addEventListener('click', function() {
+            isNormalised = !isNormalised; 
+            this.textContent = isNormalised ? 'Show Unnormalised Map' : 'Show Normalised Map'; 
+            loadChoropleth(); 
+        });
+
         vegaEmbed('#fire-historymap', 'fire_historymap.html');
-        vegaEmbed('#state-chloropeth', 'state_chloropeth.html');
         vegaEmbed('#fireseason-bar', 'fireseason_bar.html');
         vegaEmbed('#temp-line-graph', 'temp_line_graph.html');
         vegaEmbed('#pie-chart', 'pie_chart.html');

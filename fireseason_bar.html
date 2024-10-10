@@ -126,10 +126,10 @@
   ],
 
   "config": {
-    "mark": {
-      "tooltip": {
-        "signal": "{'Fire Season': datum.year, 'Hectares Burnt': datum.amount}"
-      }
+  "mark": {
+    "tooltip": {
+      "signal": "{'Fire Season': datum.year, 'Hectares Burnt': format(datum.amount, ',')}"
     }
   }
+}
 }
