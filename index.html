@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vega-Lite Dashboard</title>
+    <title>Australian Fire History</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -23,16 +23,15 @@
             min-height: 300px; 
         }
         h1 {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 3rem;
-            color: #dc4d01; 
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            color: #f45a07; 
             text-align: center;
             margin-top: 20px;
             margin-bottom: 40px;
         }
         h1 span {
-            color: #800000; 
+            color: #e00d0d; 
         }
         body {
             background-color: #ecf0f1; 
@@ -48,6 +47,11 @@
         .btn-red:hover {
             background-color: #c82333; 
         }
+        .info-text {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
         .row {
             display: flex; 
             flex-wrap: wrap; 
@@ -58,8 +62,16 @@
     <div class="container">
         <h1>Fire History in <span>Australia</span></h1>
 
+        <div class="info-text">
+            <strong style="color: crimson;">Bushfires</strong> are a widespread, destructive occurrence in <strong style="color: crimson;">Australia</strong> and have been for millions of years, taking the lives of hundreds of people and native fauna, as well as causing significant property and environmental damage. Bushfires have been credited with the deaths of over <strong style="color: orangered;">800</strong> people since 1851.
+        </div>
+
         <div class="graph-container">
             <div id="fire-historymap" class="d-flex justify-content-center"></div>
+        </div>
+
+        <div class="info-text">
+            The 2019-20 bushfire season, colloquially known as <strong style="color: crimson;">Black Summer</strong>, was uniquely catastrophic. Approximately <strong style="color: orangered;">3 billion</strong> animals were killed as a result, and over <strong style="color: orangered;">1700</strong> animals, plants, and ecological communities are officially recognised as threatened as a direct consequence.
         </div>
 
         <div class="row">
@@ -76,6 +88,10 @@
             </div>
         </div>
 
+        <div class="info-text">
+            <br> But why was Black Summer so unusually destructive? Though bushfires have a range of different causes, they are exacerbated by certain weather conditions including <em>high temperatures, low humidity, lack of rain, and strong winds,</em> all of which are worsening over time due to the <strong style="color: crimson;">climate crisis</strong>. Though climate change isn’t directly causing bushfires, they create conditions that escalate the severity, frequency, and length of them and have contributed to the recent disturbing trend in fire danger.
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="graph-container">
@@ -87,6 +103,37 @@
                     <div id="pie-chart"></div>
                 </div>
             </div>
+        </div>
+
+        <div class="container">
+            <h2><br>Sources</h2>
+            <ul>
+                <li>
+                    <a href="https://www.aihw.gov.au/getmedia/a14c3205-784c-4d81-ab49-a33ed4d3d813/aihw-phe-276.pdf" target="_blank">
+                        Australian Institute of Health and Welfare (AIHW)
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.agriculture.gov.au/abares/forestsaustralia/forest-data-maps-and-tools/data-by-topic/fire#fire-area-and-area-of-forest-in-fire-area-by-jurisdiction" target="_blank">
+                        Department of Agriculture, Fisheries, and Forestry (AFF)
+                    </a>
+                </li>
+                <li>
+                    <a href="https://data.sa.gov.au/data/dataset/fire-history" target="_blank">
+                        Data SA
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.soe.epa.nsw.gov.au/all-themes/land/fire" target="_blank">
+                        New South Wales Environmental Protection Agency
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wwf.org.au/what-we-do/australian-bushfires/#" target="_blank">
+                        WWF Australia
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
